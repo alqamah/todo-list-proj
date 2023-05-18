@@ -1,5 +1,5 @@
 
-
+(function(){
 let tasks = [];
 let taskList = document.getElementById('list');
 const addTaskInput = document.getElementById('add');
@@ -121,14 +121,45 @@ function clickEventHandler(e) {
     }
 }
 
-
+//fetching data from server via API
+    async function fetchData() {
+         fetch('https://jsonplaceholder.typicode.com/todos')
+        .then(function(fetchedData){
+            return fetchedData.json();
+        })
+        .then(function(data){
+            tasks = data.slice(0,10);
+            renderList();
+        })
+        .catch(function(error){
+            console.log(error.message);
+        }) 
+        //Using Async Await:
+        try {
+            const response = await fetch('https://jsonplaceholder.typicode.com/todos');
+            const data = await response.json();
+            tasks = data.slice(0, 10);
+            renderList();
+        }
+        catch (error) {
+            console.log(error.message);
+        }
+    }
 
 
 function init() {
     console.log('initializing app');
-    ///fetchData();//api fetch
     addTaskInput.addEventListener('keyup', handleInputKeyPress);
     document.addEventListener('click', clickEventHandler);
+     document.addEventListener('keyup',function(e){
+            if(e.key == 'f'){
+                fetchData();
+            }
+            else if(e.key == 'c'){
+                tasks=[];
+                renderList();
+            }
+        });
 }
 init();
-
+})();
