@@ -1,0 +1,44 @@
+<html>
+
+<head>
+  <title>Todo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Dosis:wght@200&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <div id="notification-box"></div>
+  <div class="animate-character">
+  <h1>Todo List</h1>
+  </div>
+  <div id="container">
+    <div>
+      <span id="head"><input placeholder="Add a task" class="add-task" id="add" data-helloWord="asdasdas" >
+        <img id = 'submit-btn' src="addb.png" alt="enter-btn"></span>
+      
+      <ul id="list">
+        <!--<li>
+          <input type="checkbox">
+          <label for="${task.id}">sdasd</label>
+          <img src="bin.png" class="delete" data-id="${task.id}" />
+        </li>-->
+      
+      </ul>
+      
+    </div>
+    
+    <div id="footer">
+      <div id="counter">
+        <span id="total-tasks">Total tasks: <span id="tasks-counter">0</span></span>
+        <span id="completed-tasks">Tasks completed: <span id="tasks-checked">0</span></span>
+      </div>
+    </div>
+  </div>
+  <script src="todo.js"></script>
+</body>
+
+</html>
